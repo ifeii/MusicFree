@@ -140,10 +140,14 @@ android {
         }
         // !! Add lines
          release {
-            storeFile file(keystoreProperties['RELEASE_STORE_FILE'])
-            storePassword keystoreProperties['RELEASE_STORE_PASSWORD']
-            keyAlias keystoreProperties['RELEASE_KEY_ALIAS']
-            keyPassword keystoreProperties['RELEASE_KEY_PASSWORD']
+            // storeFile file(keystoreProperties['RELEASE_STORE_FILE'])
+            // storePassword keystoreProperties['RELEASE_STORE_PASSWORD']
+            // keyAlias keystoreProperties['RELEASE_KEY_ALIAS']
+            // keyPassword keystoreProperties['RELEASE_KEY_PASSWORD']
+            storeFile file(System.getenv("KEYSTORE_FILE") ?:"keystore.jks")
+            storePassword System.getenv("KEYSTORE_PASSWORD")
+            keyAlias System.getenv("KEY_ALIAS")
+            keyPassword System.getenv("KEY_PASSWORD")
         }
     }
     splits {
