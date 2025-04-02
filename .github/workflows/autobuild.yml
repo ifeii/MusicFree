@@ -47,7 +47,7 @@ jobs:
         with: 
           node-version: 16
       - name: Install Pkgs
-        run: npm ci
+        run: npm i
       - name: Get Version
         run: node -p -e '`VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
       - name: Build
