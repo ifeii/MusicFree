@@ -50,10 +50,9 @@ jobs:
         run: npm i
       - name: Get Version
         run: node -p -e '`VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
-      - name: Change wrapper permissions
-        run: chmod +x ./gradlew
       - name: Build
         run: | 
           cd ./android
+          run: chmod +x ./gradlew
           ./gradlew assembleRelease
       
