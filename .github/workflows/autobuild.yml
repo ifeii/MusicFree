@@ -52,6 +52,8 @@ jobs:
         run: node -p -e '`VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
       - name: Change wrapper permissions
         run: chmod +x ./android/gradlew
+      - name: gen keystore file
+        run: echo $KEYSTORE_BASE64 | base64 -di > ./android/app/keystore.jks
       - name: Build
         run: | 
           cd ./android
